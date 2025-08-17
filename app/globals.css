@@ -1,0 +1,214 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    /* Updated primary colors to navy blue from fitect brand */
+    --primary: 220 26% 14%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+    /* Updated accent to teal from brand colors */
+    --accent: 174 72% 56%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 0% 3.9%;
+    /* Updated chart colors to match brand palette */
+    --chart-1: 220 26% 14%;
+    --chart-2: 174 72% 56%;
+    --chart-3: 200 98% 39%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.5rem;
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Added custom brand colors */
+    --fitect-navy: 220 26% 14%;
+    --fitect-teal: 174 72% 56%;
+    --fitect-light-blue: 200 98% 39%;
+    /* Added custom font family variables */
+    --font-body: var(--font-roboto-thin), sans-serif;
+    --font-heading: var(--font-rawast-medium), sans-serif;
+  }
+  .dark {
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 9%;
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: 174 72% 56%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 0 0% 83.1%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+    --fitect-navy: 220 26% 14%;
+    --fitect-teal: 174 72% 56%;
+    --fitect-light-blue: 200 98% 39%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  /* Updated body typography to use Roboto Thin as default */
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+    font-weight: 100;
+  }
+
+  /* Applied Rawast Medium to all headings and emphasized text */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-heading);
+    font-weight: 500;
+  }
+
+  /* Applied Rawast Medium to quotes and emphasized elements */
+  blockquote,
+  .quote,
+  .oneliner,
+  .hero-text,
+  .callout {
+    font-family: var(--font-heading);
+    font-weight: 500;
+  }
+
+  /* Ensure paragraphs and standard text use Roboto Thin */
+  p,
+  span,
+  div,
+  li,
+  td,
+  th,
+  label,
+  input,
+  textarea,
+  select {
+    font-family: var(--font-body);
+    font-weight: 100;
+  }
+
+  /* Button text uses Rawast Medium for emphasis */
+  button,
+  .btn {
+    font-family: var(--font-heading);
+    font-weight: 500;
+  }
+}
+
+/* Added Tailwind utility classes for font families */
+@layer utilities {
+  .font-body {
+    font-family: var(--font-body);
+    font-weight: 100;
+  }
+
+  .font-heading {
+    font-family: var(--font-heading);
+    font-weight: 500;
+  }
+}
+
+/* Adding parallax background styles for subtle logo watermarks on white sections */
+.section--white {
+  position: relative;
+  background: #fff;
+  overflow: clip; /* contain the bg */
+}
+
+.parallax-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  display: grid;
+  place-items: center; /* center by default; adjust per section if needed */
+  z-index: 0;
+}
+
+.parallax-bg img {
+  opacity: 0.03; /* reduced from 0.05 to 0.03 for even more subtle effect */
+  mix-blend-mode: multiply; /* falls back to opacity if unsupported */
+  width: min(70vw, 1100px); /* scale guard */
+  max-width: 1100px;
+  filter: saturate(0.9) contrast(0.95);
+  /* soft edge fade – if supported */
+  mask-image: radial-gradient(closest-side, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0));
+  -webkit-mask-image: radial-gradient(closest-side, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0));
+  transform: translate3d(0, 0, 0);
+  will-change: transform;
+}
+
+/* Prefer reduced motion = freeze */
+@media (prefers-reduced-motion: reduce) {
+  .parallax-bg img {
+    transform: none !important;
+  }
+}
+
+/* Section-specific tweaks */
+.parallax-bg--expertise {
+  place-items: center end;
+}
+
+.parallax-bg--expertise img {
+  width: min(60vw, 900px);
+  transform: translateX(-10%);
+}
+
+.parallax-bg--long img {
+  width: min(80vw, 1280px);
+  opacity: 0.025; /* reduced from 0.035 to 0.025 for longer sections */
+}
